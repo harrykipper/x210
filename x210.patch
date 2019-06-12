@@ -1,0 +1,39 @@
+--- src/linux/up-device-supply.c	2019-06-13 00:10:55.499456303 +0100
++++ src/linux/up-device-supply.c	2019-06-13 00:10:47.209314621 +0100
+@@ -629,10 +629,8 @@
+ 
+ 		/* convert charge to energy */
+ 		if (energy_full < 0.01) {
+-			energy_full = sysfs_get_double (native_path, "charge_full") / 1000000.0;
+-			energy_full_design = sysfs_get_double (native_path, "charge_full_design") / 1000000.0;
+-			energy_full *= voltage_design;
+-			energy_full_design *= voltage_design;
++			energy_full = sysfs_get_double (native_path, "charge_full") / 100000.0;
++			energy_full_design = sysfs_get_double (native_path, "charge_full_design") / 100000.0;
+ 			supply->priv->coldplug_units = UP_DEVICE_SUPPLY_COLDPLUG_UNITS_CHARGE;
+ 		}
+ 
+@@ -677,10 +675,9 @@
+ 
+ 		/* convert charge to energy */
+ 		if (energy < 0.01) {
+-			energy = sysfs_get_double (native_path, "charge_now") / 1000000.0;
++			energy = sysfs_get_double (native_path, "charge_now") / 100000.0;
+ 			if (energy < 0.01)
+-				energy = sysfs_get_double (native_path, "charge_avg") / 1000000.0;
+-			energy *= voltage_design;
++				energy = sysfs_get_double (native_path, "charge_avg") / 100000.0;
+ 		}
+ 
+ 		charge_full = sysfs_get_double (native_path, "charge_full") / 1000000.0;
+@@ -690,9 +687,7 @@
+ 		/* If charge_full exists, then current_now is always reported in uA.
+ 		 * In the legacy case, where energy only units exist, and power_now isn't present
+ 		 * current_now is power in uW. */
+-		energy_rate = fabs (sysfs_get_double (native_path, "current_now") / 1000000.0);
+-		if (charge_full != 0)
+-			energy_rate *= voltage_design;
++		energy_rate = fabs (sysfs_get_double (native_path, "current_now") / 100000.0);
+ 	}
+ 
+ 	/* some batteries don't update last_full attribute */
