@@ -1,2 +1,2 @@
 # x210
-random stuff for the 51nb x210
+patches and mods for the 51nb x210
