@@ -10,7 +10,8 @@ Collection of patches and mods for the 51nb x210.
  
  You can patch the Embedded Controller with Vladislav's version: 
 
-```flashrom -p internal -r x210-current-internal-flashrom.bin
+```
+flashrom -p internal -r x210-current-internal-flashrom.bin
 dd if=x210-current-internal-flashrom.bin of=fw.bin bs=1024 count=2048
 dd if=ec.bin of=fw.bin bs=1024 count=64 seek=2048
 dd if=x210-current-internal-flashrom.bin of=fw.bin bs=1024 count=6080 seek=2112
