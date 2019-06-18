@@ -8,6 +8,8 @@ Collection of patches and mods for the 51nb x210.
  
  ## How to patch the X210 BIOS
  
+ ### Option 1: patch the embedded controller
+ 
  You can patch the Embedded Controller with Vladislav's version: 
 
 ```
@@ -18,6 +20,8 @@ dd if=x210-current-internal-flashrom.bin of=fw.bin bs=1024 count=6080 seek=2112
 flashrom -V -p internal -l layout -i ec -w fw.bin
 ```
 Credit for this goes to Thinkpad forum user L29Ah https://forum.thinkpads.com/viewtopic.php?p=834033#p834033
+
+### Option 2: flash an already patched BIOS image
 
 Alternatively you might want to flash the already patched bios:
 
