@@ -23,7 +23,7 @@ Alternatively you might want to flash the already patched bios:
 
 ```flashrom -p internal -w bios-ec-mod.bin```
 
-Be advised that bios-ec-mod.bin contains my customizations and might not boot on a different machine. In particular, the SATA controller is disabled and only UEFI boot is enabled.
+Be advised that bios-ec-mod.bin contains my customizations and might not boot on a different machine. In particular, the SATA controller is disabled and only UEFI boot is enabled. However my configuration enables several power saving features disabled in the stock BIOS.
 
 ##  Battery capacity
 
