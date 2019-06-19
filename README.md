@@ -31,6 +31,6 @@ Be advised that bios-ec-mod.bin contains my customizations and might not boot on
 
 ##  Battery capacity
 
-Once the BIOS is flashed, in order for the system to report the correct battery capacity and power draw you'll need to patch the kernel with *x210-battery-fix.patch*. This is because most of the X210's EC is probably directly taken from the X201 EC, including the bugs.  In particular, the Linux kernel sources hint at what has been causing the capacity detection issues:
+Once the BIOS is flashed, in order for the system to report the correct battery capacity you'll need to patch the kernel with **x210-battery-fix.patch**. Most of the X210's EC is probably directly taken from the X201 EC, including the bugs. In particular, the Linux kernel sources hint at what has been causing the capacity detection issues:
 
 > On Lenovo Thinkpad models from 2010 and 2011, the power unit switches between mWh and mAh depending on whether the system is running on battery or not. When mAh is the unit, most reported values are incorrect and need to be adjusted by 10000/design_voltage. Verified on x201, t410, 410s, and x220. Pre-2010 and 2012 models appear to always report in mWh and are thus unaffected (tested with t42, t61, t500, x200, x300, and x230).
