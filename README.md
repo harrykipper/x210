@@ -35,7 +35,7 @@ Flash coreboot with
 
 ```flashrom -p internal -w coreboot.rom```
 
-The build provided includes the patched EC. If you want to build it yourself download coreboot sources from Matthew Garrett's repository https://github.com/mjg59/coreboot/tree/x210_test and use the attached .config.
+The build provided includes the patched EC and tianocore. It will boot an UEFI operating system, not a BIOS one. If you want to build it yourself download coreboot sources from Matthew Garrett's repository https://github.com/mjg59/coreboot/tree/x210_test and use the attached .config.
 
 ##  Battery capacity
 
