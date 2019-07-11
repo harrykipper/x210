@@ -5,6 +5,8 @@ Collection of patches and mods for the 51nb x210.
  * **bios-ec-mod.bin** Full bios dump including the modified EC. 
   * **layout** Layout file required to flash the EC portion of the BIOS contributed by Thinkpad forum user L29Ah https://forum.thinkpads.com/viewtopic.php?p=834229#p834229
  * **x210-battery-fix.patch** Linux kernel patch to detect correct battery capacity.
+ * **coreboot.rom** Coreboot image containing the patched EC
+ * **.config**  Coreboot .config file
  
  ## How to patch the X210 BIOS
  
