@@ -29,6 +29,14 @@ Alternatively you might want to flash the already patched bios:
 
 Be advised that bios-ec-mod.bin contains my customizations and might not boot on a different machine. In particular, the SATA controller is disabled, only UEFI boot is enabled and the processor is undervolted by 100mV. However my configuration enables several power saving features disabled in the stock BIOS.
 
+### Option 3: flash coreboot
+
+Flash coreboot with
+
+```flashrom -p internal -w coreboot.rom```
+
+The build provided includes the patched EC. If you want to build it yourself download coreboot sources from Matthew Garrett's repository https://github.com/mjg59/coreboot/tree/x210_test and use the attached .config.
+
 ##  Battery capacity
 
 Once the BIOS is flashed, in order for the system to report the correct battery capacity you'll need to patch the kernel with **x210-battery-fix.patch**. Most of the X210's EC is likely directly taken from the X201 EC, including the bugs. In particular, the Linux kernel sources hint at what has been causing the capacity detection issues:
