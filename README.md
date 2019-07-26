@@ -29,7 +29,8 @@ Alternatively you might want to flash the already patched bios:
 
 ```flashrom -p internal -w bios-ec-mod.bin```
 
-Be advised that bios-ec-mod.bin contains my customizations and might not boot on a different machine. In particular, the SATA controller is disabled, only UEFI boot is enabled and the processor is undervolted by 100mV. However my configuration enables several power saving features disabled in the stock BIOS.
+Be advised that bios-ec-mod.bin contains my customizations and might not boot on a different machine. In particular, the SATA controller is disabled, only UEFI boot is enabled and the processor is undervolted by 100mV. You can modify these settings upon first boot from the BIOS setup panel.
+My configuration also enables several power saving features disabled by defatult.
 
 ### Option 3: flash coreboot
 
