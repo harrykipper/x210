@@ -37,7 +37,7 @@ Flash coreboot with
 
 ```flashrom -p internal -w coreboot.rom```
 
-The build provided includes the patched EC and tianocore. It will boot an UEFI operating system, not a BIOS one. This version enables SATA Devslp, ASPM L1 substates and other power management optimizations. 
+The build provided includes the patched EC and tianocore. It will boot an UEFI operating system, not a BIOS one. This version enables SATA Aggressive PM, Devslp, ASPM L1 substates and other power management optimizations. It also includes CPU microcode updates. This version is tested to boot Windows 10, however the installer doesn't detect the NVME drive.
 
 ##  Battery capacity
 
