@@ -40,7 +40,7 @@ Flash coreboot with
 
 The build provided includes the patched EC and tianocore. It will boot an UEFI operating system, not a BIOS one. It'll also boot Windows 10, however the installer doesn't detect the NVME drive. This version enables SATA Aggressive PM, Devslp, ASPM L1 substates and other power saving related features. It also includes CPU microcode updates from Intel.
 
-##  Battery capacity
+##  Fix battery capacity detection
 
 Once the BIOS is flashed, in order for the system to report the correct battery capacity you'll need to patch the kernel with **x210-battery-fix.patch**. Most of the X210's EC is likely directly taken from the X201 EC, including the bugs. In particular, the Linux kernel sources hint at what has been causing the capacity detection issues:
 
