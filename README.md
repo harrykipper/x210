@@ -36,7 +36,7 @@ My configuration also enables several power saving features disabled by defatult
 
 Flash coreboot with
 
-```flashrom -p internal -w coreboot.rom```
+```flashrom -p internal -w coreboot.rom``` or, if you are already running coreboot, ```flashrom -p internal:laptop=force_I_want_a_brick -w coreboot.bin```
 
 The build provided includes the patched EC and tianocore. It will boot an UEFI operating system, not a BIOS one. It'll also boot Windows 10, however the installer doesn't detect the NVME drive. This version enables SATA Aggressive PM, Devslp, ASPM L1 substates and other power saving related features. It also includes CPU microcode updates from Intel.
 
