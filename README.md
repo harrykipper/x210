@@ -55,3 +55,40 @@ The build provided includes the patched EC, fixes the battery capacity detection
 The payload is tianocore, therefore it will boot a UEFI operating system, not a BIOS one. It'll also boot Windows 10, however the installer doesn't seem to detect the NVME drive, I am unsure about SATA drives.
 
 This build includes the full 3rd gen Management Engine. It may or may not work on other generations of the X210. Coreboot gives the ability to strip down the ME at build time using me_cleaner. If you want to neuter the ME completely you can build your own image with the up-to-date tree here https://github.com/harrykipper/coreboot
+
+### Coreboot build HOWTO
+
+If you want a bleeding edge coreboot for your X210 do the following.
+
+Download the latest coreboot tree:
+```
+git clone https://review.coreboot.org/coreboot
+cd coreboot
+git submodule update --init --checkout
+```
+ Download the x210_test branch from my repo: 
+ ```
+ cd ..
+ wget https://github.com/harrykipper/coreboot/archive/x210_test.zip
+ unzip x210_test
+ ```
+ 
+ Copy the X210 stuff from x210_test into the main coreboot dir
+ ``` 
+ cp -r x210_test/src/mainboard/51nb coreboot/src/
+ cp -r x210_test/src/ec/51nb coreboot/ec/
+ ```
+ Copy the .config file above into the coreboot dir.
+  
+Extract the the stock bios: ```flashrom -p internal -r x210-stock-bios.rom```
+
+Open the stock bios in UEFITool https://github.com/LongSoft/UEFITool and extract Descriptor region and ME Region to descriptor.bin and me.bin ("Extract as is"). Then search for ```VGA Compatilble BIOS``` (unselect UNICODE), double click on the string in Messages which will take you to the relevant section, then Action -> Section -> Extract Body. Save it as vgabios.bin
+
+Copy the VBT: ```cp /sys/kernel/debug/dri/0/i915_vbt vbt.bin```
+
+Put all the .bin files in coreboot/3rdparty/blobs/mainboard/51nb/ , then build the crosstools. ```make crosstools-i386 CPUS=8```
+Then run ```make menuconfig``` in the main coreboot directory. The default configuration should work well for all users. You have the option of neutering the ME in the "Chipset" menu. In System tables you have the option of adding the serial number of your machine to the SMBIOS tables. The SN is usually found on a sticker attached to one of the RAM slots.
+
+Compile coreboot: ```make -j8```
+
+Pay attention to any error/issue that might arise. If all goes well the image will be generated under build/ ready to flash.
