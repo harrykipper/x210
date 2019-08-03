@@ -57,13 +57,13 @@ The patch fixes that by simply removing the checks on machine type and model and
 
 ## Coreboot
 
-Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.com/viewtopic.php?f=80&t=126731 It is still not part of the official coreboot tree, but it may be quite soon. So far everything seems to work very well, only the SD card reader is untested. A compiled coreboot image for the 210 (3rd batch) is provided here.
+Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.com/viewtopic.php?f=80&t=126731 It is still not part of the official coreboot tree, but it may be quite soon. So far everything seems to work very well, only the SD card reader is untested. A compiled coreboot image for the x210 (3rd batch) is provided here.
 
 Flash coreboot with the following command
 
 ```flashrom -p internal -w coreboot.rom``` or, if you are already running coreboot, ```flashrom -p internal:laptop=force_I_want_a_brick -w coreboot.bin```
 
-The build provided includes the patched EC, fixes the battery capacity detection problems so that no kernel patching is required, and enables several power saving features such as SATA Aggressive PM, Devslp, ASPM L1 substates for all PCIe devices including NVMe. It also includes CPU microcode updates from Intel. 
+The build provided includes the patched EC, fixes battery capacity detection problems so that no kernel patching is required, and enables several power saving features such as SATA Aggressive PM, Devslp, ASPM L1 substates for all PCIe devices including NVMe. It also includes CPU microcode updates from Intel. 
 
 The payload is tianocore, therefore it will boot a UEFI operating system, not a BIOS one. It'll also boot Windows 10, however the installer doesn't seem to detect the NVME drive, I am unsure about SATA drives.
 
