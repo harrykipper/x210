@@ -92,5 +92,5 @@ Run ```make menuconfig``` in the main coreboot directory. The default configurat
 
 Compile coreboot: ```make -j8```
 
-Pay attention to any error/issue that might arise. If all goes well the image will be generated under build/ ready to flash.
-```flashrom -p internal:laptop=force_I_want_a_brick -w coreboot.rom```
+Pay attention to any error/issue that might arise. If all goes well the image will be generated under build/ and it won't brick your machine.
+```flashrom -p internal -w coreboot.rom```
