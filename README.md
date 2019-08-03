@@ -87,6 +87,7 @@ Open the stock bios in UEFITool https://github.com/LongSoft/UEFITool and extract
 Copy the VBT: ```cp /sys/kernel/debug/dri/0/i915_vbt vbt.bin```
 
 Put all the .bin files (including ec.bin from the repo) in coreboot/3rdparty/blobs/mainboard/51nb/ , then build the crosstools. ```make crosstools-i386 CPUS=8```
+
 Run ```make menuconfig``` in the main coreboot directory. The default configuration should work well for all users. You have the option of neutering the ME in the "Chipset" menu. In System tables you have the option of adding the serial number of your machine to the SMBIOS tables. The SN is usually found on a handwritten sticker attached to one of the RAM slots.
 
 Compile coreboot: ```make -j8```
