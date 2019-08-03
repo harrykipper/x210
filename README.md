@@ -54,4 +54,4 @@ The build provided includes the patched EC, fixes the battery capacity detection
 
 The payload is tianocore, therefore it will boot a UEFI operating system, not a BIOS one. It'll also boot Windows 10, however the installer doesn't seem to detect the NVME drive, I am unsure about SATA drives.
 
-This build includes the full 3rd gen Management Engine. It may or may not work on other generations of the X210. Coreboot gives the ability to strip down the ME at build time using me_cleaner. If you want to neuter the ME completely you can build your own coreboot. An up-to-date tree with all the latest improvements and tweaks is here: https://github.com/harrykipper/coreboot
+This build includes the full 3rd gen Management Engine. It may or may not work on other generations of the X210. Coreboot gives the ability to strip down the ME at build time using me_cleaner. If you want to neuter the ME completely you can build your own image with the up-to-date tree here https://github.com/harrykipper/coreboot
