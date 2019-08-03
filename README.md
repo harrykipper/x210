@@ -70,7 +70,7 @@ git submodule update --init --checkout
  ```
  cd ..
  wget https://github.com/harrykipper/coreboot/archive/x210_test.zip
- unzip x210_test
+ unzip x210_test.zip
  ```
  
  Copy the X210 stuff from x210_test into the main coreboot dir
