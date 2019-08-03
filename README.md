@@ -1,6 +1,19 @@
 # x210
 
 Collection of patches and mods for the 51nb x210. 
+
+## Table of Contents
+
+* [Repo contents](#repo-contents)
+* [How to patch the X210 BIOS](#how-to-patch-the-x210-bios)
+  + [Option 1: patch the embedded controller](#option-1-patch-the-embedded-controller)
+  + [Option 2: flash an already patched BIOS image](#option-2-flash-an-already-patched-bios-image)
+  + [Fix battery capacity detection](#fix-battery-capacity-detection)
+* [Coreboot](#coreboot)
+  + [Coreboot build HOWTO](#coreboot-build-howto)
+
+
+## Repo contents
  * **ec.bin** Embedded controller modified by Thinkpad forum user vladisslav2011 to increase brightness levels and improve battery voltage detection. Source: https://forum.thinkpads.com/viewtopic.php?p=833699#p833699
  * **bios-ec-mod.bin** Full bios dump including the modified EC. 
   * **layout** Layout file required to flash the EC portion of the BIOS contributed by Thinkpad forum user L29Ah https://forum.thinkpads.com/viewtopic.php?p=834229#p834229
@@ -8,15 +21,6 @@ Collection of patches and mods for the 51nb x210.
  * **coreboot.rom** Coreboot image containing the patched EC, CPU microcode updates, battery capacity detection fixes and power management improvements.
  * **.config**  Coreboot .config file
  * **X210-122.icm** ICM colour profile for the 12.2" 1980x1200 screen. 
- 
- ## Table of Contents
-
-* [How to patch the X210 BIOS](#how-to-patch-the-x210-bios)
-  + [Option 1: patch the embedded controller](#option-1-patch-the-embedded-controller)
-  + [Option 2: flash an already patched BIOS image](#option-2-flash-an-already-patched-bios-image)
-  + [Fix battery capacity detection](#fix-battery-capacity-detection)
-* [Coreboot](#coreboot)
-  + [Coreboot build HOWTO](#coreboot-build-howto)
 
 ## How to patch the X210 BIOS
  
