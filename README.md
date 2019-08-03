@@ -20,7 +20,7 @@ Collection of patches and mods for the 51nb x210.
  * **x210-battery-fix.patch** Linux kernel patch to detect correct battery capacity and discharge rate.
  * **coreboot.rom** Coreboot image containing the patched EC, CPU microcode updates, battery capacity detection fixes and power management improvements.
  * **.config**  Coreboot .config file
- * **X210-122.icm** ICM colour profile for the 12.2" 1980x1200 screen. 
+ * **X210-122.icm** ICM colour profile for the 12.2" 1920x1200 screen. 
 
 ## How to patch the X210 BIOS
  
