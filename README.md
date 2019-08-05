@@ -101,7 +101,7 @@ Copy the VBT: ```cp /sys/kernel/debug/dri/0/i915_vbt vbt.bin```
 
 Put all the .bin files (including ec.bin from the repo) in coreboot/3rdparty/blobs/mainboard/51nb/ , then build the crosstools. ```make crosstools-i386 CPUS=8```
 
-Run ```make menuconfig``` in the main coreboot directory. The default configuration should work well for all users. You have the option of neutering the ME in the "Chipset" menu (this is NOT recommeded at the moment if you have a NVMe drive. NVMe L1 substates *might* depend from the ME being operational. If that doesn't work your drive might end up undetected). In System tables you have the option of adding the serial number of your machine to the SMBIOS tables. The SN is usually found on a handwritten sticker attached to one of the RAM slots.
+Run ```make menuconfig``` in the main coreboot directory. The default configuration should work well for all users. You have the option of neutering the ME in the "Chipset" menu. In System tables you can add the serial number of your machine to the SMBIOS tables. The SN is usually found on a handwritten sticker attached to one of the RAM slots.
 
 Compile coreboot: ```make -j8```
 
