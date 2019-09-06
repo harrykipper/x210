@@ -96,11 +96,11 @@ Copy the .config file from the repo into the coreboot dir.
 
 Extract the the stock bios: ```flashrom -p internal -r x210-stock-bios.rom```
 
-Open the stock bios in UEFITool https://github.com/LongSoft/UEFITool and extract Descriptor region and ME Region to descriptor.bin and me.bin ("Extract as is"). Then search for ```VGA Compatilble BIOS``` (unselect UNICODE), double click on the string in Messages which will take you to the relevant section, then Action -> Section -> Extract Body. Save it as vgabios.bin
+Open the stock bios in UEFITool https://github.com/LongSoft/UEFITool and extract Descriptor region and ME Region to descriptor.bin and me.bin ("Extract as is"). Then search for ```VGA Compatible BIOS``` (unselect UNICODE), double click on the string in "Messages" which will take you to the relevant section, then Action -> Section -> Extract Body. Save it as vgabios.bin
 
 Copy the VBT: ```cp /sys/kernel/debug/dri/0/i915_vbt vbt.bin```
 
-Put all the .bin files (including ec.bin from the repo) in coreboot/3rdparty/blobs/mainboard/51nb/. If you plan to use libgfxinit you can safely omit vgabios.bin and vbt.bin (although linux complains that it can't find vbt). Then build the crosstools. ```make crosstools-i386 CPUS=8```
+Put all the .bin files (including ec.bin from the repo) in coreboot/3rdparty/blobs/mainboard/51nb/. If you plan to use libgfxinit you can safely omit vgabios.bin and vbt.bin (although linux will complain that it can't find a vbt). Then build the crosstools. ```make crosstools-i386 CPUS=8```
 
 Run ```make menuconfig``` in the main coreboot directory. The default configuration should work well for all users. You have the option of neutering the ME in the "Chipset" menu. In System tables you can add the serial number of your machine to the SMBIOS tables. The SN is usually found on a handwritten sticker attached to one of the RAM slots.
 
