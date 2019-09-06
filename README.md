@@ -108,3 +108,5 @@ Compile coreboot: ```make -j8```
 
 Pay attention to any error/issue that might arise. If all goes well the image will be generated under build/ and it won't brick your machine.
 ```flashrom -p internal -w coreboot.rom```
+
+You can keep your coreboot tree up to date by issuing ```git pull``` in the root directory, if you want to recompile later.
