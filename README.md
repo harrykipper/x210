@@ -58,7 +58,7 @@ The patch fixes that by simply removing the checks on machine type and model and
 
 ## Coreboot
 
-Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.com/viewtopic.php?f=80&t=126731 It is still not part of the official coreboot tree, but it may be quite soon. So far everything seems to work very well, only the SD card reader is untested. A compiled coreboot image for the x210 (3rd batch) is provided here.
+Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.com/viewtopic.php?f=80&t=126731 It is still not part of the official coreboot tree, but it may be at some point. So far everything seems to work very well, except for the SD card reader. A compiled coreboot image for the x210 (3rd batch) is provided here.
 
 Flash coreboot with the following command
 
