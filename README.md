@@ -89,8 +89,8 @@ git submodule update --init --checkout
  
  Copy the X210 stuff over from x210_test into the main coreboot dir
  ``` 
- cp -r x210_test/src/mainboard/51nb coreboot/src/mainboard/
- cp -r x210_test/src/ec/51nb coreboot/src/ec/
+ cp -r coreboot-x210_test/src/mainboard/51nb coreboot/src/mainboard/
+ cp -r coreboot-x210_test/src/ec/51nb coreboot/src/ec/
  ```
 Copy the .config file from the repo into the coreboot dir.
 
