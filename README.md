@@ -17,7 +17,7 @@ Collection of patches and mods for the 51nb x210.
  * **ec.bin** Embedded controller modified by Thinkpad forum user vladisslav2011 to increase brightness levels and improve battery voltage detection. Source: https://forum.thinkpads.com/viewtopic.php?p=833699#p833699
  * **bios-ec-mod.bin** Full bios dump including the modified EC. 
   * **layout** Layout file required to flash the EC portion of the BIOS contributed by Thinkpad forum user L29Ah https://forum.thinkpads.com/viewtopic.php?p=834229#p834229
- * **x210-battery-fix.patch** Linux kernel patch to detect correct battery capacity and discharge rate.
+ * **x210-battery-fix.patch** Linux kernel patch to detect correct battery capacity and discharge rate on the stock BIOS.
  * **coreboot.rom** Coreboot image containing the patched EC, CPU microcode updates, battery capacity detection fixes and power management improvements.
  * **coreboot-gfxinit.rom** Same as above implementing libgfxinit instead of GOP driver
  * **.config**  Coreboot .config file
