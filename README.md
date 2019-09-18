@@ -80,6 +80,13 @@ git clone https://review.coreboot.org/coreboot
 cd coreboot
 git submodule update --init --checkout
 ```
+
+*Optional:* cherrypick smmstore patches to enable saving and loading Tianocore settings
+```
+git fetch "https://review.coreboot.org/coreboot" refs/changes/12/30012/16 && git cherry-pick FETCH_HEAD
+git fetch "https://review.coreboot.org/coreboot" refs/changes/32/30432/9 && git cherry-pick FETCH_HEAD
+```
+
  Download the x210_test branch from my repo: 
  ```
  cd ..
