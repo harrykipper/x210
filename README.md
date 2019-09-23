@@ -66,7 +66,7 @@ Flash coreboot with the following command
 
 The build provided includes the patched EC, fixes battery capacity detection problems so that no kernel patching is required, and enables several power saving features such as SATA Aggressive PM, Devslp, ASPM L1 substates for all PCIe devices including NVMe. It also includes CPU microcode updates from Intel. 
 
-The payload is tianocore, therefore it will boot a UEFI operating system, not a BIOS one. It'll also boot Windows 10, however the installer doesn't seem to detect the NVME drive, I am unsure about SATA drives.
+The payload is tianocore, therefore it will boot a UEFI operating system, not a BIOS one. It'll also boot the installer or an existing installation of Windows 10.
 
 This build includes the full 3rd gen Management Engine. It may or may not work on other generations of the X210. Coreboot gives the ability to strip down the ME at build time using me_cleaner. If you want to neuter the ME completely you can build your own image with the up-to-date tree here https://github.com/harrykipper/coreboot
 
