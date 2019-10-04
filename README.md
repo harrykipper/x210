@@ -6,7 +6,7 @@ Collection of patches and mods for the 51nb x210.
 
 * [Repo contents](#repo-contents)
 * [How to patch the X210 BIOS](#how-to-patch-the-x210-bios)
-  + [Option 1: patch the embedded controller](#option-1-patch-the-embedded-controller)
+  + [Option 1: use a patched embedded controller](#option-1-use-a-patched-embedded-controller)
   + [Option 2: flash an already patched BIOS image](#option-2-flash-an-already-patched-bios-image)
   + [Fix battery capacity detection](#fix-battery-capacity-detection)
 * [Coreboot](#coreboot)
