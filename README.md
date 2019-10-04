@@ -54,7 +54,7 @@ Once the BIOS is flashed, in order for a system running the stock UEFI bios to r
 
 > On Lenovo Thinkpad models from 2010 and 2011, the power unit switches between mWh and mAh depending on whether the system is running on battery or not. When mAh is the unit, most reported values are incorrect and need to be adjusted by 10000/design_voltage. Verified on x201, t410, 410s, and x220. Pre-2010 and 2012 models appear to always report in mWh and are thus unaffected (tested with t42, t61, t500, x200, x300, and x230).
 
-The patch fixes that by simply removing the checks on machine type and model and enabling the workaround on the X210
+The only difference is that the power unit never changes on the X210, it's always mAh, and the values are always wrong. The patch fixes that by simply removing the checks on machine type and model and enabling the workaround on the X210
 
 ## Coreboot
 
