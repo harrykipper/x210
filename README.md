@@ -40,7 +40,7 @@ Credit for this goes to Thinkpad forum user L29Ah https://forum.thinkpads.com/vi
 
 #### Option 1a: cherry-pick EC patches
 
-L29Ah has a tool to select which patches to apply to the EC: https://github.com/l29ah/x210-ec
+L29Ah built a handy tool to select which patches to apply to the EC: https://github.com/l29ah/x210-ec
 
 ### Option 2: flash an already patched BIOS image
 
