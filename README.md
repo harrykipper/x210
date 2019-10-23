@@ -38,7 +38,7 @@ flashrom -V -p internal -l layout -i ec -w fw.bin
 ```
 Credit for this goes to Thinkpad forum user L29Ah https://forum.thinkpads.com/viewtopic.php?p=834033#p834033
 
-## Option 1a: cherry-pick EC patches
+#### Option 1a: cherry-pick EC patches
 
 L29Ah has a tool to select which patches to apply to the EC: https://github.com/l29ah/x210-ec
 
