@@ -22,6 +22,7 @@ Collection of patches and mods for the 51nb x210.
  * **coreboot-gfxinit.rom** Same as above implementing libgfxinit instead of GOP driver
  * **.config**  Coreboot .config file
  * **X210-122.icm** ICM colour profile for the 12.2" 1920x1200 screen. 
+ * **LP130QP1_SPA1.icm** ICM colour profile for the 13" 3000x2000 screen.
 
 ## How to patch the X210 BIOS
  
