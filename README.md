@@ -63,7 +63,7 @@ The only difference is that the power unit never changes on the X210, it's alway
 
 ## Coreboot
 
-Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.com/viewtopic.php?f=80&t=126731 It is still not part of the official coreboot tree, but it may be at some point. So far everything seems to work very well. A compiled coreboot image for the x210 (3rd batch) is provided here.
+Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.com/viewtopic.php?f=80&t=126731 As of 20 March 2020 the X210 is part of the official coreboot tree. A compiled coreboot image for the x210 (3rd batch) is provided here.
 
 Flash coreboot with the following command
 
@@ -86,18 +86,6 @@ cd coreboot
 git submodule update --init --checkout
 ```
 
- Download the x210_test branch from my repo: 
- ```
- cd ..
- wget https://github.com/harrykipper/coreboot/archive/x210_test.zip
- unzip x210_test.zip
- ```
- 
- Copy the X210 stuff over from x210_test into the main coreboot dir
- ``` 
- cp -r coreboot-x210_test/src/mainboard/51nb coreboot/src/mainboard/
- cp -r coreboot-x210_test/src/ec/51nb coreboot/src/ec/
- ```
 Copy the .config file from the repo into the coreboot dir.
 
 Extract the the stock bios: ```flashrom -p internal -r x210-stock-bios.rom```
