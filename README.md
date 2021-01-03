@@ -67,13 +67,13 @@ Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.c
 
 Flash coreboot with the following command
 
-```flashrom -p internal -w coreboot.rom``` or, if you are already running coreboot, ```flashrom -p internal:laptop=force_I_want_a_brick -w coreboot.bin```
+```flashrom -p internal -w coreboot.rom```
 
 The build provided includes the patched EC, fixes battery capacity detection problems so that no kernel patching is required, and enables several power saving features such as SATA Aggressive PM, Devslp, ASPM L1 substates for all PCIe devices including NVMe. It also includes CPU microcode updates from Intel. 
 
 The payload is tianocore, therefore it will boot a UEFI operating system, not a BIOS one. It'll also boot the installer or an existing installation of Windows 10.
 
-This build includes the full 3rd gen Management Engine. It may or may not work on other generations of the X210. Coreboot gives the ability to strip down the ME at build time using me_cleaner. If you want to neuter the ME completely you can build your own image with the up-to-date tree here https://github.com/harrykipper/coreboot
+This build includes the full 3rd gen Management Engine. It may or may not work on other generations of the X210. Coreboot gives the ability to strip down the ME at build time using me_cleaner. If you want to neuter the ME completely you should build your own image following the steps below.
 
 ### Coreboot build HOWTO
 
