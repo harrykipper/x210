@@ -1,6 +1,6 @@
 diff -uNr linux-5.2-rc4-orig/drivers/acpi/battery.c linux-5.2-rc4/drivers/acpi/battery.c
---- linux-5.2-rc4-orig/drivers/acpi/battery.c	2019-06-09 04:24:46.000000000 +0100
-+++ linux-5.2-rc4/drivers/acpi/battery.c	2019-06-16 13:03:30.579985249 +0100
+--- a/drivers/acpi/battery.c	2019-06-09 04:24:46.000000000 +0100
++++ b/drivers/acpi/battery.c	2019-06-16 13:03:30.579985249 +0100
 @@ -480,8 +480,7 @@
  				info_offsets, ARRAY_SIZE(info_offsets));
  	if (test_bit(ACPI_BATTERY_QUIRK_PERCENTAGE_CAPACITY, &battery->flags))

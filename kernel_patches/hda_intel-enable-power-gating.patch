@@ -1,5 +1,5 @@
---- linux-5.10/sound/pci/hda/hda_intel.c	2020-12-13 23:41:30.000000000 +0100
-+++ linux-5.10_mio/sound/pci/hda/hda_intel.c	2021-01-05 00:24:01.097020351 +0100
+--- a/sound/pci/hda/hda_intel.c	2020-12-13 23:41:30.000000000 +0100
++++ b/sound/pci/hda/hda_intel.c	2021-01-05 00:24:01.097020351 +0100
 @@ -1169,11 +1169,11 @@
  
  	if (!power_save_controller || !azx_has_pm_runtime(chip) ||
