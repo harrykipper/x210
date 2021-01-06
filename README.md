@@ -33,9 +33,7 @@ Collection of patches and mods for the 51nb x210.
 
 ## How to patch the X210 BIOS
 
-## 
-
- ### Option 1: use a patched embedded controller
+### Option 1: use a patched embedded controller
 
  You can replace the Embedded Controller with Vladislav's version: 
 
