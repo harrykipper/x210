@@ -25,7 +25,7 @@ Collection of patches and mods for the 51nb x210.
     * **LP130QP1_SPA1.icm** ICM colour profile for the 13" 3000x2000 screen.
  * kernel_patches
     * **x210-battery-fix.patch** Detect correct battery capacity and discharge rate (only needed on stock BIOS)
-    * **r8169-enable-aspm.patch** Enable L1 ASPM and substates on the realtek ethernet NIC. There are no issues enabling ASPM for the chip contained in the x210, alternatively the [r8168](https://github.com/simonbcn/r8168-dkms) module from Realtek can be used. However ASPM is often lost after resuming from sleep with r8168.
+    * **r8169-enable-aspm.patch** Enable L1 ASPM and substates on the realtek ethernet NIC. As of Linux 5.10 there seem to be no issues enabling ASPM for the chip contained in the x210. Alternatively the [r8168](https://github.com/simonbcn/r8168-dkms) module from Realtek can be used. r8168 enables ASPM natively, however ASPM is often lost after resuming from sleep with this module.
     * **hda_intel-enable-power-gating.patch** /sys/kernel/debug/pmc_core/pch_ip_power_gating_status shows PCH IP: 9  - HDA-PGD0 State: Off with this patch. This is a precondition for s0ix (which does not work yet)
  * **.config**  Coreboot .config file
  * **bios-ec-mod.bin** Full bios dump including the modified EC. 
