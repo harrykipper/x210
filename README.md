@@ -25,7 +25,7 @@ Collection of patches and mods for the 51nb x210.
     * **LP130QP1_SPA1.icm** ICM colour profile for the 13" 3000x2000 screen.
  * kernel_patches
     * **x210-battery-fix.patch** Detect correct battery capacity and discharge rate (only needed on stock BIOS)
-    * **r8169-enable-aspm.patch** Enable L1 ASPM and substates on the realtek ethernet NIC. There are no issues with this patch, but the r8168 module from Realtek can also be used alternatively. However ASPM is often lost after resuming from sleep with this driver.  
+    * **r8169-enable-aspm.patch** Enable L1 ASPM and substates on the realtek ethernet NIC. There are no issues enabling ASPM for the chip contained in the x210, alternatively the [r8168](https://github.com/simonbcn/r8168-dkms) module from Realtek can be used. However ASPM is often lost after resuming from sleep with r8168.
     * **hda_intel-enable-power-gating.patch** /sys/kernel/debug/pmc_core/pch_ip_power_gating_status shows PCH IP: 9  - HDA-PGD0 State: Off with this patch. This is a precondition for s0ix (which does not work yet)
  * **.config**  Coreboot .config file
  * **bios-ec-mod.bin** Full bios dump including the modified EC. 
@@ -70,11 +70,11 @@ The only difference is that the power unit never changes on the X210, it's alway
 
 ## Coreboot
 
-Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.com/viewtopic.php?f=80&t=126731 As of 20 March 2020 the X210 is part of the official coreboot tree. A compiled coreboot image for the x210 (3rd batch) is provided here.
+Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.com/viewtopic.php?f=80&t=126731 As of 20 March 2020 the X210 is part of the official coreboot tree. Pre-compiled coreboot images for the x210 (3rd batch) are provided here.
 
 Flash coreboot with the following command
 
-```flashrom -p internal -w coreboot.rom```
+```flashrom -p internal -w coreboot-gfxinit.rom```
 
 The build provided includes the patched EC, fixes battery capacity detection problems so that no kernel patching is required, and enables several power saving features such as SATA Aggressive PM, Devslp, ASPM L1 substates for all PCIe devices including NVMe. It also includes CPU microcode updates from Intel. 
 
