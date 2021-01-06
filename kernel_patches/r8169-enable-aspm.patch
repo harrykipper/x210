@@ -1,0 +1,14 @@
+--- a/drivers/net/ethernet/realtek/r8169_main.c	2020-12-13 23:41:30.000000000 +0100
++++ b/drivers/net/ethernet/realtek/r8169_main.c	2021-01-05 00:25:38.474391287 +0100
+@@ -5268,11 +5268,6 @@
+ 	if (rc)
+ 		return rc;
+ 
+-	/* Disable ASPM completely as that cause random device stop working
+-	 * problems as well as full system hangs for some PCIe devices users.
+-	 */
+-	rc = pci_disable_link_state(pdev, PCIE_LINK_STATE_L0S |
+-					  PCIE_LINK_STATE_L1);
+ 	tp->aspm_manageable = !rc;
+ 
+ 	/* enable device (incl. PCI PM wakeup and hotplug setup) */

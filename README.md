@@ -14,20 +14,29 @@ Collection of patches and mods for the 51nb x210.
 
 
 ## Repo contents
- * **ec.bin** Embedded controller modified by Thinkpad forum user vladisslav2011 to increase brightness levels and improve battery voltage detection. Source: https://forum.thinkpads.com/viewtopic.php?p=833699#p833699
+ * blobs
+    * **ec.bin** Embedded controller modified by Thinkpad forum user vladisslav2011 to increase brightness levels and improve battery voltage detection. Source: https://forum.thinkpads.com/viewtopic.php?p=833699#p833699
+    * descriptor.bin, vbt.bin, vgabios.bin, me.bin: other blobs needed for coreboot
+ * coreboot_images - precompiled, flashable coreboot images containing the patched EC, CPU microcode updates, battery capacity detection fixes and power management improvements
+    * **coreboot-gop.rom** Coreboot 4.13 w/GOP driver
+    * **coreboot-gfxinit.rom** Coreboot 4.13 w/libgfxinit 
+ * colour_profiles
+    * **X210-122.icm** ICM colour profile for the 12.2" 1920x1200 screen. 
+    * **LP130QP1_SPA1.icm** ICM colour profile for the 13" 3000x2000 screen.
+ * kernel_patches
+    * **x210-battery-fix.patch** Detect correct battery capacity and discharge rate (only needed on stock BIOS)
+    * **r8169-enable-aspm.patch** Enable L1 ASPM and substates on the realtek ethernet NIC. There are no issues with this patch, but the r8168 module from Realtek can also be used alternatively. However ASPM is often lost after resuming from sleep with this driver.  
+    * **hda_intel-enable-power-gating.patch** /sys/kernel/debug/pmc_core/pch_ip_power_gating_status shows PCH IP: 9  - HDA-PGD0 State: Off with this patch. This is a precondition for s0ix (which does not work yet)
+ * **.config**  Coreboot .config file
  * **bios-ec-mod.bin** Full bios dump including the modified EC. 
   * **layout** Layout file required to flash the EC portion of the BIOS contributed by Thinkpad forum user L29Ah https://forum.thinkpads.com/viewtopic.php?p=834229#p834229
- * **x210-battery-fix.patch** Linux kernel patch to detect correct battery capacity and discharge rate on the stock BIOS.
- * **coreboot.rom** Coreboot image containing the patched EC, CPU microcode updates, battery capacity detection fixes and power management improvements.
- * **coreboot-gfxinit.rom** Same as above implementing libgfxinit instead of GOP driver
- * **.config**  Coreboot .config file
- * **X210-122.icm** ICM colour profile for the 12.2" 1920x1200 screen. 
- * **LP130QP1_SPA1.icm** ICM colour profile for the 13" 3000x2000 screen.
 
 ## How to patch the X210 BIOS
- 
+
+## 
+
  ### Option 1: use a patched embedded controller
- 
+
  You can replace the Embedded Controller with Vladislav's version: 
 
 ```
