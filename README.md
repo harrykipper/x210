@@ -14,22 +14,21 @@ Collection of patches and mods for the 51nb x210.
 
 
 ## Repo contents
- * blobs
-    + **ec.bin** Embedded controller modified by Thinkpad forum user vladisslav2011 to increase brightness levels and improve battery voltage detection. Source: https://forum.thinkpads.com/viewtopic.php?p=833699#p833699
-    + descriptor.bin, vbt.bin, vgabios.bin, me.bin: other blobs needed for coreboot
- * coreboot_images - precompiled, flashable coreboot images containing the patched EC, CPU microcode updates, battery capacity detection fixes and power management improvements
-    + **coreboot-gop.rom** Coreboot 4.13 w/GOP driver
-    + **coreboot-gfxinit.rom** Coreboot 4.13 w/libgfxinit 
- * colour_profiles
-    + **X210-122.icm** ICM colour profile for the 12.2" 1920x1200 screen. 
-    + **LP130QP1_SPA1.icm** ICM colour profile for the 13" 3000x2000 screen.
- * kernel_patches
-    + **x210-battery-fix.patch** Detect correct battery capacity and discharge rate (only needed on stock BIOS)
-    + **r8169-enable-aspm.patch** Enable L1 ASPM and substates on the realtek ethernet NIC. As of Linux 5.10 there seem to be no issues enabling ASPM for the chip contained in the x210. Alternatively the [r8168](https://github.com/simonbcn/r8168-dkms) module from Realtek can be used. r8168 enables ASPM natively, however ASPM is often lost after resuming from sleep with this module.
-    + **hda_intel-enable-power-gating.patch** /sys/kernel/debug/pmc_core/pch_ip_power_gating_status shows PCH IP: 9  - HDA-PGD0 State: Off with this patch. This is a precondition for s0ix (which does not work yet)
- * **.config**  Coreboot .config file
- * **bios-ec-mod.bin** Full bios dump including the modified EC. 
- * **layout** Layout file required to flash the EC portion of the BIOS contributed by Thinkpad forum user L29Ah https://forum.thinkpads.com/viewtopic.php?p=834229#p834229
+* blobs
+   + **ec.bin** Embedded controller modified by Thinkpad forum user vladisslav2011 to increase brightness levels and improve battery voltage detection. Source: https://forum.thinkpads.com/viewtopic.php?p=833699#p833699
+   + descriptor.bin, vbt.bin, vgabios.bin, me.bin: other blobs needed for coreboot
+* coreboot_images - precompiled, flashable coreboot images containing the patched EC, CPU microcode updates, battery capacity detection fixes and power management improvements
+   + **coreboot.rom** Coreboot 4.13 w/Intel ME and libgfxinit 
+* colour_profiles
+   + **X210-122.icm** ICM colour profile for the 12.2" 1920x1200 screen. 
+   + **LP130QP1_SPA1.icm** ICM colour profile for the 13" 3000x2000 screen.
+* kernel_patches
+   + **x210-battery-fix.patch** Detect correct battery capacity and discharge rate (only needed on stock BIOS)
+   + **r8169-enable-aspm.patch** Enable L1 ASPM and substates on the realtek ethernet NIC. As of Linux 5.10 there seem to be no issues enabling ASPM for the chip contained in the x210. Alternatively the [r8168](https://github.com/simonbcn/r8168-dkms) module from Realtek can be used. r8168 enables ASPM natively, however ASPM is often lost after resuming from sleep with this module.
+   + **hda_intel-enable-power-gating.patch** /sys/kernel/debug/pmc_core/pch_ip_power_gating_status shows PCH IP: 9  - HDA-PGD0 State: Off with this patch. This is a precondition for s0ix (which does not work yet)
+* **.config**  Coreboot .config file
+* **bios-ec-mod.bin** Full bios dump including the modified EC. 
+* **layout** Layout file required to flash the EC portion of the BIOS contributed by Thinkpad forum user L29Ah https://forum.thinkpads.com/viewtopic.php?p=834229#p834229
 
 ## How to patch the X210 BIOS
 
@@ -74,7 +73,7 @@ Matthew Garrett has been porting coreboot to the X210: https://forum.thinkpads.c
 
 Flash coreboot with the following command
 
-```flashrom -p internal -w coreboot-gfxinit.rom```
+```flashrom -p internal -w coreboot.rom```
 
 The build provided includes the patched EC, fixes battery capacity detection problems so that no kernel patching is required, and enables several power saving features such as SATA Aggressive PM, Devslp, ASPM L1 substates for all PCIe devices including NVMe. It also includes CPU microcode updates from Intel. 
 
@@ -101,7 +100,7 @@ Open the stock bios in UEFITool https://github.com/LongSoft/UEFITool and extract
 
 Copy the VBT: ```cp /sys/kernel/debug/dri/0/i915_vbt vbt.bin```
 
-Put all the .bin files (including ec.bin from the repo) in coreboot/3rdparty/blobs/mainboard/51nb/x210. If you plan to use libgfxinit you can safely omit vgabios.bin and vbt.bin (although linux will complain that it can't find a vbt). Then build the crosstools. ```make crosstools-i386 CPUS=8```
+Put all the .bin files (including ec.bin from the repo) in coreboot/3rdparty/blobs/mainboard/51nb/x210. If you plan to use libgfxinit you can safely omit vgabios.bin and vbt.bin (although linux will complain about not finding the VBT). Then build the crosstools. ```make crosstools-i386 CPUS=8```
 
 Run ```make menuconfig``` in the main coreboot directory. The .config provided here should work well for all users. You have the option of neutering the ME in the "Chipset" menu. In System tables you can add the serial number of your machine to the SMBIOS tables. The SN is usually found on a handwritten sticker attached to one of the RAM slots.
 
