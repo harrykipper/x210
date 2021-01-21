@@ -16,8 +16,9 @@ Collection of patches and mods for the 51nb x210.
 ## Repo contents
 * blobs
    + **ec.bin** Embedded controller modified by Thinkpad forum user vladisslav2011 to increase brightness levels and improve battery voltage detection. Source: https://forum.thinkpads.com/viewtopic.php?p=833699#p833699
-   + descriptor.bin, vbt.bin, vgabios.bin, me.bin: other blobs needed for coreboot
-* coreboot_images - precompiled, flashable coreboot images containing the patched EC, CPU microcode updates, battery capacity detection fixes and power management improvements
+   + **me.bin** INTEL Management Engine blob, updated to the latest version with all known vulnerabilities patched (check with this tool: https://downloadcenter.intel.com/download/28632/Intel-Converged-Security-and-Management-Engine-Version-Detection-Tool-Intel-CSMEVDT-)
+   + descriptor.bin, vbt.bin, vgabios.bin: other blobs needed for coreboot
+* coreboot_images - precompiled, flashable coreboot images containing the patched EC, CPU microcode updates, updated ME, battery capacity detection fixes and power management improvements
    + **coreboot.rom** Coreboot 4.13 w/Intel ME and libgfxinit 
 * colour_profiles
    + **X210-122.icm** ICM colour profile for the 12.2" 1920x1200 screen. 
